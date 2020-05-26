@@ -55,8 +55,8 @@ func dummyData() []*pb.Metric {
 
 // Timestamp converts time.Time to protobuf *Timestamp
 func Timestamp(t time.Time) *pbtime.Timestamp {
-	var pbt pbtime.Timestamp
-	pbt.Seconds = t.Unix()
-	pbt.Nanos = int32(t.Nanosecond())
-	return &pbt
+	return &pbtime.Timestamp{
+		Seconds: t.Unix(),
+		Nanos:   int32(t.Nanosecond()),
+	}
 }
